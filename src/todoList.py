@@ -6,9 +6,10 @@ import json
 import functools
 from botocore.exceptions import ClientError
 
-
+#
 def get_table(dynamodb=None):
     if not dynamodb:
+        # Fijamos el host
         URL = os.environ['ENDPOINT_OVERRIDE']
         if URL:
             print('URL dynamoDB:'+URL)
