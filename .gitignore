@@ -1,7 +1,11 @@
+\#*
 .aws-sam/
 __pycache__/
+.pytest_cache
 .git
 tests
 pyenvunittests
 .coverage
 coverage.xml
+*~
+.pytest_cache
