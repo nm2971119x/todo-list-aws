@@ -4,7 +4,7 @@ import todoList
 
 
 def get(event, context):
-    # create a response 
+    # create a response
     item = todoList.get_item(event['pathParameters']['id'])
     if item:
         response = {
