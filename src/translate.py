@@ -5,15 +5,19 @@ import todoList
 def get(event, context):
     # create a response
     item = todoList.get_item(event['pathParameters']['id'])
-    if item:
-        response = {
-            "statusCode": 200,
-            "body": json.dumps("Translated" + item,
-                               cls=decimalencoder.DecimalEncoder)
-        }
-    else:
+    
+    if not item:
         response = {
             "statusCode": 404,
-            "body": ""
+            "body": "ID incorrecta"
         }
+        return response
+
+    item['translate'] = todoList.translate(item['text'],"es")
+    
+    response = {
+        "statusCode": 200,
+        "body": json.dumps(item,
+                           cls=decimalencoder.DecimalEncoder)
+    }
     return response
