@@ -1,4 +1,5 @@
 # from pprint import pprint
+from pprint import pprint
 import warnings
 import unittest
 import boto3
@@ -6,6 +7,15 @@ from moto import mock_dynamodb2
 import sys
 import os
 import json
+
+class TestTranslate(unittest.TestCase):
+    def translate(self):
+        print ('Translate EN -> ES : Hola')
+        from src.todoList import translate
+        text = translate("hello","es")
+        pprint(text)
+        time.sleep(44)
+
 
 @mock_dynamodb2
 class TestDatabaseFunctions(unittest.TestCase):
