@@ -1,0 +1,184 @@
+[
+    [
+        "pip", 
+        "<21.1", 
+        "20.3.4", 
+        "Pip version 21.1 stops splitting on unicode separators in git references, which could be maliciously used to install a different revision on the repository. \r\nhttps://github.com/pypa/pip/issues/9827", 
+        "42218"
+    ], 
+    [
+        "pip", 
+        "<21.1", 
+        "20.3.4", 
+        "The urllib3 library 1.26.x before 1.26.4 for Python omits SSL certificate validation in some cases involving HTTPS to HTTPS proxies. The initial connection to the HTTPS proxy (if an SSLContext isn't given via proxy_config) doesn't verify the hostname of the certificate. This means certificates for different servers that still validate properly with the default urllib3 SSLContext will be silently accepted.", 
+        "40291"
+    ], 
+    [
+        "pip", 
+        "<21.1", 
+        "20.3.4", 
+        "Pip version 21.1 includes a fix for CVE-2021-3572: A flaw was found in python-pip in the way it handled Unicode separators in git references. A remote attacker could possibly use this issue to install a different revision on a repository. The highest threat from this vulnerability is to data integrity.\r\nhttps://bugzilla.redhat.com/show_bug.cgi?id=1962856", 
+        "42559"
+    ], 
+    [
+        "pylint", 
+        "<2.5.0", 
+        "1.8.1", 
+        "Pylint 2.5.0 no longer allows ``python -m pylint ...`` to import user code. Previously, it added the current working directory as the first element of ``sys.path``. This opened up a potential security hole where ``pylint`` would import user level code as long as that code resided in modules having the same name as stdlib or pylint's own modules.", 
+        "38224"
+    ], 
+    [
+        "pylint", 
+        "<2.7.0", 
+        "1.8.1", 
+        "Pylint 2.7.0 includes a fix for vulnerable regular expressions in 'pyreverse'.", 
+        "39621"
+    ], 
+    [
+        "django", 
+        "<1.11.19,>=1.11.0", 
+        "1.11.10", 
+        "Django 1.11.x before 1.11.19 allows Uncontrolled Memory Consumption via a malicious attacker-supplied value to the django.utils.numberformat.format() function.", 
+        "36885"
+    ], 
+    [
+        "django", 
+        "<1.11.22,>1.11", 
+        "1.11.10", 
+        "An issue was discovered in Django 1.11 before 1.11.22, 2.1 before 2.1.10, and 2.2 before 2.2.3. An HTTP request is not redirected to HTTPS when the SECURE_PROXY_SSL_HEADER and SECURE_SSL_REDIRECT settings are used, and the proxy connects to Django via HTTPS. In other words, django.http.HttpRequest.scheme has incorrect behavior when a client uses HTTP.", 
+        "37261"
+    ], 
+    [
+        "django", 
+        "<1.11.27", 
+        "1.11.10", 
+        "Django before 1.11.27, 2.x before 2.2.9, and 3.x before 3.0.1 allows account takeover. A suitably crafted email address (that is equal to an existing user's email address after case transformation of Unicode characters) would allow an attacker to be sent a password reset token for the matched user account. (One mitigation in the new releases is to send password reset tokens only to the registered user email address.) See CVE-2019-19844.", 
+        "37771"
+    ], 
+    [
+        "django", 
+        "<2.2.24", 
+        "1.11.10", 
+        "Django versions 2.2.24, 3.1.12, and 3.2.4 include a fix for CVE-2021-33203: Django before 2.2.24, 3.x before 3.1.12, and 3.2.x before 3.2.4 has a potential directory traversal via django.contrib.admindocs. Staff members could use the TemplateDetailView view to check the existence of arbitrary files. Additionally, if (and only if) the default admindocs templates have been customized by application developers to also show file contents, then not only the existence but also the file contents would have been exposed. In other words, there is directory traversal outside of the template root directories. See CVE-2021-33203.\r\nhttps://www.djangoproject.com/weblog/2021/jun/02/security-releases/\r\nhttps://docs.djangoproject.com/en/3.2/releases/security/\r\nhttps://groups.google.com/forum/#%21forum/django-announce", 
+        "40637"
+    ], 
+    [
+        "django", 
+        "<2.2.25", 
+        "1.11.10", 
+        "Django versions 2.2.25, 3.1.14 and 3.2.10 include a fix for CVE-2021-44420: In Django 2.2 before 2.2.25, 3.1 before 3.1.14, and 3.2 before 3.2.10, HTTP requests for URLs with trailing newlines could bypass upstream access control based on URL paths.\r\nhttps://www.djangoproject.com/weblog/2021/dec/07/security-releases/", 
+        "43041"
+    ], 
+    [
+        "django", 
+        ">=1.11,<1.11.28", 
+        "1.11.10", 
+        "Django 1.11 before 1.11.28, 2.2 before 2.2.10, and 3.0 before 3.0.3 allows SQL Injection if untrusted data is used as a StringAgg delimiter (e.g., in Django applications that offer downloads of data as a series of rows with a user-specified column delimiter). By passing a suitably crafted delimiter to a contrib.postgres.aggregates.StringAgg instance, it was possible to break escaping and inject malicious SQL.", 
+        "37970"
+    ], 
+    [
+        "django", 
+        ">=1.11.0,<1.11.21", 
+        "1.11.10", 
+        "An issue was discovered in Django 1.11 before 1.11.21, 2.1 before 2.1.9, and 2.2 before 2.2.2. The clickable Current URL value displayed by the AdminURLFieldWidget displays the provided value without validating it as a safe URL. Thus, an unvalidated value stored in the database, or a value provided as a URL query parameter payload, could result in an clickable JavaScript link.", 
+        "37191"
+    ], 
+    [
+        "django", 
+        ">=1.11.0,<1.11.23", 
+        "1.11.10", 
+        "An issue was discovered in Django 1.11.x before 1.11.23, 2.1.x before 2.1.11, and 2.2.x before 2.2.4. If django.utils.text.Truncator's chars() and words() methods were passed the html=True argument, they were extremely slow to evaluate certain inputs due to a catastrophic backtracking vulnerability in a regular expression. The chars() and words() methods are used to implement the truncatechars_html and truncatewords_html template filters, which were thus vulnerable.", 
+        "37329"
+    ], 
+    [
+        "django", 
+        ">=1.11.0,<1.11.23", 
+        "1.11.10", 
+        "An issue was discovered in Django 1.11.x before 1.11.23, 2.1.x before 2.1.11, and 2.2.x before 2.2.4. Due to an error in shallow key transformation, key and index lookups for django.contrib.postgres.fields.JSONField, and key lookups for django.contrib.postgres.fields.HStoreField, were subject to SQL injection. This could, for example, be exploited via crafted use of \"OR 1=1\" in a key or index name to return all records, using a suitably crafted dictionary, with dictionary expansion, as the **kwargs passed to the QuerySet.filter() function.", 
+        "37357"
+    ], 
+    [
+        "django", 
+        ">=1.11.0,<1.11.23", 
+        "1.11.10", 
+        "An issue was discovered in Django 1.11.x before 1.11.23, 2.1.x before 2.1.11, and 2.2.x before 2.2.4. Due to the behaviour of the underlying HTMLParser, django.utils.html.strip_tags would be extremely slow to evaluate certain inputs containing large sequences of nested incomplete HTML entities.", 
+        "37330"
+    ], 
+    [
+        "django", 
+        ">=1.11.0,<1.11.23", 
+        "1.11.10", 
+        "An issue was discovered in Django 1.11.x before 1.11.23, 2.1.x before 2.1.11, and 2.2.x before 2.2.4. If passed certain inputs, django.utils.encoding.uri_to_iri could lead to significant memory usage due to a recursion when repercent-encoding invalid UTF-8 octet sequences.", 
+        "37331"
+    ], 
+    [
+        "django", 
+        ">=1.11.0,<1.11.29", 
+        "1.11.10", 
+        "Django 1.11 before 1.11.29, 2.2 before 2.2.11, and 3.0 before 3.0.4 allow SQL Injections if untrusted data is used as a tolerance parameter in GIS functions and aggregates on Oracle. By passing a suitably crafted tolerance to GIS functions and aggregates on Oracle, it was possible to break escaping and inject malicious SQL. See: CVE-2020-9402.", 
+        "38010"
+    ], 
+    [
+        "django", 
+        ">=1.11a1,<1.11.11", 
+        "1.11.10", 
+        "If ``django.utils.text.Truncator``'s ``chars()`` and ``words()`` methods were\r\npassed the ``html=True`` argument, they were extremely slow to evaluate certain\r\ninputs due to a catastrophic backtracking vulnerability in a regular\r\nexpression. The ``chars()`` and ``words()`` methods are used to implement the\r\n``truncatechars_html`` and ``truncatewords_html`` template filters, which were\r\nthus vulnerable.", 
+        "35796"
+    ], 
+    [
+        "django", 
+        ">=1.11a1,<1.11.11", 
+        "1.11.10", 
+        "An issue was discovered in Django 2.0 before 2.0.3, 1.11 before 1.11.11, and 1.8 before 1.8.19. The django.utils.html.urlize() function was extremely slow to evaluate certain inputs due to catastrophic backtracking vulnerabilities in two regular expressions (only one regular expression for Django 1.8.x). The urlize() function is used to implement the urlize and urlizetrunc template filters, which were thus vulnerable. See: CVE-2018-7536.", 
+        "35797"
+    ], 
+    [
+        "django", 
+        ">=1.11a1,<1.11.15", 
+        "1.11.10", 
+        "django.middleware.common.CommonMiddleware in Django 1.11.x before 1.11.15 and 2.0.x before 2.0.8 has an Open Redirect. A remote user can redirect the target user's browser to an arbitrary site.", 
+        "36368"
+    ], 
+    [
+        "django", 
+        ">=1.11a1,<1.11.18", 
+        "1.11.10", 
+        "In Django 1.11.x before 1.11.18, 2.0.x before 2.0.10, and 2.1.x before 2.1.5, an Improper Neutralization of Special Elements in Output Used by a Downstream Component issue exists in django.views.defaults.page_not_found(), leading to content spoofing (in a 404 error page) if a user fails to recognize that a crafted URL has malicious content. See: CVE-2019-3498.", 
+        "36771"
+    ], 
+    [
+        "pycrypto", 
+        "<=2.6.1", 
+        "2.6.1", 
+        "Heap-based buffer overflow in the ALGnew function in block_templace.c in Python Cryptography Toolkit (aka pycrypto) 2.6.1 allows remote attackers to execute arbitrary code as demonstrated by a crafted iv parameter to cryptmsg.py.", 
+        "35015"
+    ], 
+    [
+        "cryptography", 
+        "<3.3", 
+        "2.1.4", 
+        "Cryptography 3.3 no longer allows loading of finite field Diffie-Hellman parameters of less than 512 bits in length. This change is to conform with an upcoming OpenSSL release that no longer supports smaller sizes. These keys were already wildly insecure and should not have been used in any application outside of testing.", 
+        "39252"
+    ], 
+    [
+        "cryptography", 
+        "<3.3.2", 
+        "2.1.4", 
+        "In the cryptography package before 3.3.2 for Python, certain sequences of update calls to symmetrically encrypt multi-GB values could result in an integer overflow and buffer overflow, as demonstrated by the Fernet class. See: CVE-2020-36242.", 
+        "39606"
+    ], 
+    [
+        "cryptography", 
+        "<=3.2", 
+        "2.1.4", 
+        "Cryptography 3.2 was released with the warning that its maintainers became aware of a Bleichenbacher vulnerability that they were only partly able to mitigate. See: CVE-2020-25659.", 
+        "38932"
+    ], 
+    [
+        "cryptography", 
+        ">=1.9.0,<2.3", 
+        "2.1.4", 
+        "A flaw was found in python-cryptography versions between >=1.9.0 and <2.3. The finalize_with_tag API did not enforce a minimum tag length. If a user did not validate the input length prior to passing it to finalize_with_tag an attacker could craft an invalid payload with a shortened tag (e.g. 1 byte) such that they would have a 1 in 256 chance of passing the MAC check. GCM tag forgeries can cause key leakage. See: CVE-2018-10903.", 
+        "36351"
+    ]
+]
