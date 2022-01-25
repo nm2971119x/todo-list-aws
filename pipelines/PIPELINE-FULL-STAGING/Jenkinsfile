@@ -15,7 +15,6 @@ pipeline {
                 echo 'Unit testing:'
                 sh "bash pipelines/PIPELINE-FULL-STAGING/unit_test.sh"
 		echo 'Security test & report:'
-		#sh "bash pipelines/PIPELINE-FULL-STAGING/sec_test.sh"
             }
             post {
                 always {
