@@ -15,6 +15,12 @@ pipeline {
                 echo 'Unit testing:'
                 sh "bash pipelines/PIPELINE-FULL-STAGING/unit_test.sh"
 		echo 'Security test & report:'
+<<<<<<< HEAD
+||||||| merged common ancestors
+		sh "bash pipelines/PIPELINE-FULL-STAGING/sec_test.sh"
+=======
+		#sh "bash pipelines/PIPELINE-FULL-STAGING/sec_test.sh"
+>>>>>>> master
             }
             post {
                 always {
