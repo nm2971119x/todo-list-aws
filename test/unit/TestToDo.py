@@ -1,4 +1,4 @@
-# from pprint import pprint
+from pprint import pprint
 import warnings
 import unittest
 import boto3
@@ -6,6 +6,7 @@ from moto import mock_dynamodb2
 import sys
 import os
 import json
+
 
 @mock_dynamodb2
 class TestDatabaseFunctions(unittest.TestCase):
@@ -199,6 +200,21 @@ class TestDatabaseFunctions(unittest.TestCase):
         # Testing file functions
         self.assertRaises(TypeError, delete_item("", self.dynamodb))
         print ('End: test_delete_todo_error')
+
+    def test_get_table(self):
+        from src.todoList import get_table
+        print ('---------------------')
+        print ('Start: test_get_table')
+        self.assertEqual("dynamodb.Table(name='todoUnitTestsTable')",str(get_table(self.dynamodb)))
+        print ('End: test_get_table')
+    
+    def test_translate(self):
+        print ('---------------------')
+        print ('Start: test_translate => EN -> ES : Hola')
+        from src.todoList import translate
+        text = translate("hello","es")
+        self.assertEqual("hola",text['TranslatedText'])
+        print ('End: test_translate')
 
 
 

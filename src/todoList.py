@@ -8,7 +8,9 @@ from botocore.exceptions import ClientError
 
 
 def get_table(dynamodb=None):
-    if not dynamodb:
+    if not dynamodb:  # pragma: no cover
+        # No hacemos cobertura para este caso al ser local
+        # Pero si para la funcion get_table
         # Fijamos el host
         URL = os.environ['ENDPOINT_OVERRIDE']
         if URL:
@@ -31,7 +33,7 @@ def get_item(key, dynamodb=None):
             }
         )
 
-    except ClientError as e:
+    except ClientError as e:  # pragma: no cover
         print(e.response['Error']['Message'])
     else:
         print('Result getItem:'+str(result))
@@ -66,7 +68,7 @@ def put_item(text, dynamodb=None):
             "body": json.dumps(item)
         }
 
-    except ClientError as e:
+    except ClientError as e:  # pragma: no cover
         print(e.response['Error']['Message'])
     else:
         return response
@@ -95,7 +97,7 @@ def update_item(key, text, checked, dynamodb=None):
             ReturnValues='ALL_NEW',
         )
 
-    except ClientError as e:
+    except ClientError as e:  # pragma: no cover
         print(e.response['Error']['Message'])
     else:
         return result['Attributes']
@@ -111,7 +113,7 @@ def delete_item(key, dynamodb=None):
             }
         )
 
-    except ClientError as e:
+    except ClientError as e:  # pragma: no cover
         print(e.response['Error']['Message'])
     else:
         return
@@ -143,7 +145,7 @@ def create_todo_table(dynamodb):
 
     # Wait until the table exists.
     table.meta.client.get_waiter('table_exists').wait(TableName=tableName)
-    if (table.table_status != 'ACTIVE'):
+    if (table.table_status != 'ACTIVE'):  # pragma: no cover
         raise AssertionError()
 
     return table
@@ -154,7 +156,7 @@ def translate(text, lang):
     try:
         result = translate.translate_text(Text=text, SourceLanguageCode="en",
                                           TargetLanguageCode=lang)
-    except ClientError as e:
+    except ClientError as e:  # pragma: no cover
         print(e.response['Error']['Message'])
     else:
         return result
