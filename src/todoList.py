@@ -8,8 +8,8 @@ from botocore.exceptions import ClientError
 
 
 def get_table(dynamodb=None):
-    if not dynamodb:
-        # Fijamos el host
+    if not dynamodb:  # pragma: no cover
+        # Fijamos el host , no hacemos cobertura para este caso al ser para local pero si para la funcion get_table
         URL = os.environ['ENDPOINT_OVERRIDE']
         if URL:
             print('URL dynamoDB:'+URL)
@@ -143,7 +143,7 @@ def create_todo_table(dynamodb):
 
     # Wait until the table exists.
     table.meta.client.get_waiter('table_exists').wait(TableName=tableName)
-    if (table.table_status != 'ACTIVE'):
+    if (table.table_status != 'ACTIVE'):  # pragma: no cover
         raise AssertionError()
 
     return table
