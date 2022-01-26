@@ -9,8 +9,9 @@ from botocore.exceptions import ClientError
 
 def get_table(dynamodb=None):
     if not dynamodb:  # pragma: no cover
-        # Fijamos el host , no hacemos cobertura para este caso al ser para local
+        # No hacemos cobertura para este caso al ser local
         # Pero si para la funcion get_table
+        # Fijamos el host
         URL = os.environ['ENDPOINT_OVERRIDE']
         if URL:
             print('URL dynamoDB:'+URL)
