@@ -198,7 +198,7 @@ class TestApi(unittest.TestCase):
         )
         print('End - integration test Delete TODO')
 
-    def test_api_deletetodo(self):
+        def test_api_translate(self):
         print('---------------------------------------')
         print('Starting - integration test Translate TODO')
         #Add TODO
@@ -234,5 +234,6 @@ class TestApi(unittest.TestCase):
         self.assertEqual(
             response.status_code, 200, "Error en la petición API a {url}"
         )
-        print('End - integration test TODO')
+        print('End - integration test Translate TODO')
 
+    
