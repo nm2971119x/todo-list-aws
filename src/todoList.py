@@ -1,3 +1,4 @@
+import pprint
 import os
 import boto3
 import time
@@ -156,7 +157,8 @@ def translate(text, lang):
     try:
         result = translate.translate_text(Text=text, SourceLanguageCode="en",
                                           TargetLanguageCode=lang)
+        pprint(result)
     except ClientError as e:  # pragma: no cover
         print(e.response['Error']['Message'])
-    else:
+    else:        
         return result
