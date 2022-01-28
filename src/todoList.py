@@ -154,9 +154,11 @@ def create_todo_table(dynamodb):
 def translate(text, lang):
     translate = boto3.client('translate')
     try:
-        result = translate.translate_text(Text=text, SourceLanguageCode="en",
-                                          TargetLanguageCode=lang)
+        result = translate.translate_text(
+            Text=text,
+            SourceLanguageCode=os.environ['DEFAULT_LANG'],
+            TargetLanguageCode=lang)
     except ClientError as e:  # pragma: no cover
         print(e.response['Error']['Message'])
     else:
-        return result
+        return result.get('TranslatedText')
