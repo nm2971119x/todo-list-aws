@@ -11,5 +11,3 @@ coverage run --include=src/todoList.py test/unit/TestToDo.py
 coverage report
 coverage xml
 coverage html
-tar vfcz htmlcov.tgz htmlcov/
-mv htmlcov.tgz ~/
