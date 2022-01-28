@@ -31,3 +31,14 @@ region = "us-east-1"
 capabilities = "CAPABILITY_IAM"
 parameter_overrides = "Stage=\"production\""
 image_repositories = []
+
+[review]
+[review.deploy]
+[review.deploy.parameters]
+stack_name = "todo-list-aws-review"
+s3_bucket = "aws-sam-cli-managed-review-samclisourcebucket-1vfuj8idvkkcw"
+s3_prefix = "todo-list-aws"
+region = "us-east-1"
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "Stage=\"review\""
+image_repositories = []
