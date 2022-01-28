@@ -210,10 +210,9 @@ class TestDatabaseFunctions(unittest.TestCase):
     
     def test_translate(self):
         print ('---------------------')
-        print ('Start: test_translate => EN -> ES : Hola')
+        print ('Start: test_translate => ES -> EN : Hola')
         from src.todoList import translate
-        text = translate("hello","es")
-        self.assertEqual("hola",text['TranslatedText'])
+        self.assertEqual("hello", translate("hola","en"))
         print ('End: test_translate')
 
 

@@ -23,6 +23,7 @@ Globals:
     Environment:
       Variables:
         DYNAMODB_TABLE: !Ref TodosDynamoDbTable
+        DEFAULT_LANG: "es"
         ENDPOINT_OVERRIDE: ""
     
 Resources:
