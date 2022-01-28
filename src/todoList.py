@@ -1,5 +1,3 @@
-#from pprint import pprint
-#import logging
 import os
 import boto3
 import time
@@ -155,9 +153,10 @@ def create_todo_table(dynamodb):
 
 def translate(text, lang):
     translate = boto3.client('translate')
-    result = translate.translate_text(Text=text,
-                                      SourceLanguageCode=os.environ['DEFAULT_LANG'],
-                                      TargetLanguageCode=lang)
+    result = translate.translate_text(
+        Text=text,
+        SourceLanguageCode=os.environ['DEFAULT_LANG'],
+        TargetLanguageCode=lang)
     return result.get('TranslatedText')
     if result.get('HTTPStatusCode') == 200:
         return result.get('TranslatedText')

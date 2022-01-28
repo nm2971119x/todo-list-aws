@@ -22,10 +22,10 @@ def get(event, context):
         return response
     if not len(lang) == 2:
         response = {
-            "statusCode" : 200,
+            "statusCode": 200,
             "body": "Invalid ISO Country code"
         }
-        return response    
+        return response
     item['translate'] = todoList.translate(item['text'], lang)
     item['source_lang'] = os.environ['DEFAULT_LANG']
     item['target_lang'] = lang
