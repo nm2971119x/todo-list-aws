@@ -32,8 +32,8 @@ pipeline {
             steps{
                 echo 'Package sam application:'
                 sh "bash pipelines/common-steps/build.sh"
-            }
-	    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'htmlcov', reportFiles: 'index.html', reportName: 'Practicas Curso 1', reportTitles: 'Pruebas de cobertura'])
+		publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'htmlcov', reportFiles: 'index.html', reportName: 'Practicas Curso 1', reportTitles: 'Pruebas de cobertura'])
+		}
         }
         stage('Deploy'){
             steps{
