@@ -25,7 +25,6 @@ pipeline {
                                 mergeToOneReport: true, 
                                 path: '**/coverage.xml')])
                     }
-		    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'htmlcov/', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: 'Coverage Practicas 1'])
                 }
             }
         }
@@ -34,6 +33,7 @@ pipeline {
                 echo 'Package sam application:'
                 sh "bash pipelines/common-steps/build.sh"
             }
+	    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'htmlcov', reportFiles: 'index.html', reportName: 'Practicas Curso 1', reportTitles: 'Pruebas de cobertura'])
         }
         stage('Deploy'){
             steps{
