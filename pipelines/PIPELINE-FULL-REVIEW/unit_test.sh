@@ -11,5 +11,4 @@ coverage run --include=src/todoList.py test/unit/TestToDo.py
 coverage report
 coverage xml
 coverage html
-tar vfcz /var/lib/jenkins/workspace/PIPELINE-FULL-STAGING/htmlcov.tgz /var/lib/jenkins/workspace/PIPELINE-FULL-STAGING/htmlcov/
-
+#tar vfcz /var/lib/jenkins/workspace/PIPELINE-FULL-STAGING/htmlcov.tgz /var/lib/jenkins/workspace/PIPELINE-FULL-STAGING/htmlcov/
