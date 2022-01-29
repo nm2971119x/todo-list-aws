@@ -5,15 +5,15 @@ pipeline {
         stage('SetUp'){
             steps{
                 echo 'Setup Virtualenv for testing'
-                sh "bash pipelines/PIPELINE-FULL-STAGING/setup.sh"
+                sh "bash pipelines/PIPELINE-FULL-REVIEW/setup.sh"
             }
         }
         stage('Test'){
             steps{
                 echo 'Static program analysis:'
-                sh "bash pipelines/PIPELINE-FULL-STAGING/static_test.sh"
+                sh "bash pipelines/PIPELINE-FULL-REVIEW/static_test.sh"
                 echo 'Unit testing:'
-                sh "bash pipelines/PIPELINE-FULL-STAGING/unit_test.sh"
+                sh "bash pipelines/PIPELINE-FULL-REVIEW/unit_test.sh"
 		echo 'Security test & report:'
             }
             post {
