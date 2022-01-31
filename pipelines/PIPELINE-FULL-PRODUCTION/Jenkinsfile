@@ -28,6 +28,8 @@ pipeline {
                     echo "$BASE_URL"
                     echo 'Initiating Integration Tests'
                     sh "bash pipelines/common-steps/integration.sh $BASE_URL"
+		    echo 'Production Test'
+                    sh "bash pipelines/common-steps/production_test.sh $BASE_URL"
                 }
             }
         }
