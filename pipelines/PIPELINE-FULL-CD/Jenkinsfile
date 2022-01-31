@@ -18,6 +18,9 @@ pipeline {
                     git checkout -b master origin/master
                     git merge develop
                 """, label: "Merging code to master"
+		dir ("pipelines/common-steps/") {
+ 		   sh "/usr/bin/perl -w ./git.pl `git tag | tail -n1`"
+		}
                 sshagent(['github']) {
                     sh "git push origin master"
                 }
